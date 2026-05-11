@@ -42,8 +42,7 @@ pip install -r requirements.txt
 Open [main.py](main.py) and update the following values with your own:
 
 - `subscription_key` — your API Key
-- `deployment` — the name of your model deployment
-- `model_name` — the underlying model name
+- `model_name` — the name of the model
 - `api_version` — the API version to target
 
 > **Tip:** For real projects, load these values from environment variables (e.g. via `os.environ` or `python-dotenv`) instead of hard-coding them.

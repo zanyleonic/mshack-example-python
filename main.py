@@ -2,7 +2,6 @@ from openai import AzureOpenAI
 
 endpoint = "https://app-uoaihack6zs3w.azurewebsites.net"
 model_name = "gpt-5.4"
-deployment = "gpt-5.4"
 
 subscription_key = "<your api key>"
 api_version = "2024-12-01-preview"
@@ -33,7 +32,7 @@ response = client.chat.completions.create(
         }
     ],
     max_completion_tokens=16384,
-    model=deployment
+    model=model_name
 )
 
 print(response.choices[0].message.content)
