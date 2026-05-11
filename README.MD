@@ -1,6 +1,9 @@
 # Example Project
 
-A minimal Python sample that calls an Azure OpenAI chat completion endpoint using the `openai` SDK.
+Minimal Python samples that call the OpenAI Portal using the `openai` SDK:
+
+- [main.py](main.py) — chat completions example (`gpt-5.4`)
+- [embeddings.py](embeddings.py) — text embeddings example (`text-embedding-3-large`)
 
 ## Quickstart
 
@@ -41,13 +44,14 @@ pip install -r requirements.txt
 
 Open [main.py](main.py) and update the following values with your own:
 
-- `subscription_key` — your API Key
+- `api_key` — your API Key
 - `model_name` — the name of the model
-- `api_version` — the API version to target
 
 > **Tip:** For real projects, load these values from environment variables (e.g. via `os.environ` or `python-dotenv`) instead of hard-coding them.
 
-### 5. Run the sample
+### 5. Run the samples
+
+Run the chat completion example:
 
 ```bash
 python main.py
@@ -55,8 +59,22 @@ python main.py
 
 You should see the assistant's response printed to the terminal.
 
+Run the embeddings example:
+
+```bash
+python embeddings.py
+```
+
+This sends three short phrases to the `text-embedding-3-large` deployment and prints:
+
+- the full JSON response from the embeddings API
+- a one-line summary per input showing the embedding vector length and the first/last two values
+- token usage information
+
+Note that [embeddings.py](embeddings.py) targets the `/openai` path on the endpoint and uses `base_url` instead of `azure_endpoint`. Update `api_key`, and `model_name` your team's credentials in the portal.
+
 ## Troubleshooting
 
 - **`AuthenticationError`** — verify your `subscription_key` and `endpoint` are correct.
-- **`DeploymentNotFound`** — make sure the `deployment` name matches a deployment in your Azure OpenAI resource.
-- **SSL or network errors** — check that your machine can reach the Azure endpoint and that any corporate proxy is configured.
+- **`DeploymentNotFound`** — make sure the `deployment` name matches what model you want to use in the portal.
+- **SSL or network errors** — check that your machine can reach the endpoint and it is not being blocked by any VPN or proxies.
