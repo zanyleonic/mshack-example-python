@@ -71,7 +71,7 @@ This sends three short phrases to the `text-embedding-3-large` deployment and pr
 - a one-line summary per input showing the embedding vector length and the first/last two values
 - token usage information
 
-Note that [embeddings.py](embeddings.py) targets the `/openai` path on the endpoint and uses `base_url` instead of `azure_endpoint`. Update `api_key`, and `model_name` your team's credentials in the portal.
+Update `api_key`, and `model_name` your team's credentials in the portal.
 
 ## Troubleshooting
 
